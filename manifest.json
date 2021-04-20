@@ -1,0 +1,116 @@
+{
+  "manifest_version": 1,
+  "id": "mqtt-broker-extension",
+  "name": "MQTT broker",
+  "short_name": "MQTT broker",
+  "version": "0.0.1",
+  "description": "Run an MQTT broker in your webthings gateway",
+  "homepage_url": "https://github.com/bewee/mqtt-broker-extension#readme",
+  "license": "MPL-2.0",
+  "author": "bewee",
+  "gateway_specific_settings": {
+    "webthings": {
+      "exec": "{nodeLoader} {path}",
+      "strict_min_version": "1.0.0",
+      "strict_max_version": "*",
+      "primary_type": "extension"
+    }
+  },
+  "options": {
+    "default": {
+      "brokerId": "",
+      "customBrokerConfig": "",
+      "mqtt": {
+        "enabled": true,
+        "port": 1883
+      },
+      "mqtts": {
+        "enabled": false,
+        "port": 8883
+      },
+      "mqttws": {
+        "enabled": true,
+        "port": 1884
+      },
+      "mqttwss": {
+        "enabled": false,
+        "port": 8884
+      }
+    },
+    "schema": {
+      "type": "object",
+      "properties": {
+        "brokerId": {
+          "type": "string",
+          "title": "Identifier of the broker",
+          "description": "leave empty for defaults"
+        },
+        "customBrokerConfig": {
+          "type": "string",
+          "title": "Custom broker configuration",
+          "description": "a JSON string, leave empty for defaults"
+        },
+        "mqtt": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "title": "Enable mqtt server?",
+              "description": "This one will be available as `tcp://localhost:port`"
+            },
+            "port": {
+              "type": "integer",
+              "title": "Port",
+              "description": "Default is 1883"
+            }
+          }
+        },
+        "mqtts": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "title": "Enable mqtts server?",
+              "description": "When enabled, you have to provide `server.key` and `server.crt` files at `~/.webthings/data/mqtt-broker-extension`. This one will be available as `ssl://localhost:port`"
+            },
+            "port": {
+              "type": "integer",
+              "title": "Port",
+              "description": "Default is 8883"
+            }
+          }
+        },
+        "mqttws": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "title": "Enable mqttws server?",
+              "description": "This one will be available as `ws://localhost:port`"
+            },
+            "port": {
+              "type": "integer",
+              "title": "Port",
+              "description": "Default is 1884"
+            }
+          }
+        },
+        "mqttwss": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "title": "Enable mqttwss server?",
+              "description": "When enabled, you have to provide `server.key` and `server.crt` files at `~/.webthings/data/mqtt-broker-extension`. This one will be available as `wss://localhost:port`"
+            },
+            "port": {
+              "type": "integer",
+              "title": "Port",
+              "description": "Default is 8884"
+            }
+          }
+        }
+      }
+    }
+  }
+}

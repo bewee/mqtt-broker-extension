@@ -1,0 +1,42 @@
+{
+  "name": "mqtt-broker-extension",
+  "display_name": "MQTT Broker",
+  "version": "0.0.1",
+  "description": "Run an MQTT broker in your webthings gateway",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node generate-config-interfaces.js && tsc -p .",
+    "lint": "eslint src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bewee/mqtt-broker-extension.git"
+  },
+  "author": "bewee",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/bewee/mqtt-broker-extension/issues"
+  },
+  "homepage": "https://github.com/bewee/mqtt-broker-extension#readme",
+  "files": [
+    "LICENSE",
+    "manifest.json",
+    "lib/"
+  ],
+  "dependencies": {
+    "aedes": "^0.45.2",
+    "aedes-server-factory": "^0.1.2",
+    "tls": "0.0.1"
+  },
+  "devDependencies": {
+    "@types/ws": "^7.4.0",
+    "@types/node": "^14.14.37",
+    "@typescript-eslint/eslint-plugin": "^4.16.1",
+    "@typescript-eslint/parser": "^4.16.1",
+    "eslint": "^7.21.0",
+    "gateway-addon": "^1.0.0",
+    "json-schema-to-typescript": "^10.1.3",
+    "typescript": "^4.2.3"
+  }
+}
